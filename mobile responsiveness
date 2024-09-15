@@ -1,0 +1,77 @@
+package verifytest;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v85.emulation.Emulation;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import java.util.HashMap;
+import java.util.Optional;
+
+public class mobileresponsivenes {
+
+    public WebDriver driver;
+
+    @BeforeMethod
+    public void setUp() {
+        // Set the path to ChromeDriver manually
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\REHANA\\OneDrive\\Desktop\\Seleniumsoftware\\chromedriver-win64\\chromedriver.exe");
+
+        // Initialize ChromeDriver
+        driver = new ChromeDriver();
+        
+        // Maximize the window
+        driver.manage().window().maximize();
+    }
+
+    @Test
+    public void testMobileResponsive() {
+        // Define device metrics using HashMap
+        HashMap<String, Object> deviceMetrics = new HashMap<>();
+        deviceMetrics.put("width", 375);
+        deviceMetrics.put("height", 667);
+        deviceMetrics.put("deviceScaleFactor", 100);
+        deviceMetrics.put("mobile", true);
+
+        // Initialize DevTools and set device metrics using HashMap
+        DevTools devTools = ((HasDevTools) driver).getDevTools();
+        devTools.createSession();
+        devTools.send(Emulation.setDeviceMetricsOverride(
+            (Integer) deviceMetrics.get("width"),
+            (Integer) deviceMetrics.get("height"),
+            (Integer) deviceMetrics.get("deviceScaleFactor"),
+            (Boolean) deviceMetrics.get("mobile"),
+            Optional.empty(), // Optional arguments can be added if needed
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty()
+        ));
+
+        // Navigate to the website
+        driver.get("https://yellowslate.com/hyderabad");
+
+        // Add Thread.sleep to pause for 5 seconds
+        try {
+            Thread.sleep(5000); // 5000 milliseconds = 5 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Your test steps here
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        // Close the driver
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}
