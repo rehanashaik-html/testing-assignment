@@ -1,0 +1,31 @@
+yellowslatetesting
+
+
+Broken Links
+To ensure a seamless user experience, we have implemented broken link testing. This involves verifying all links on the site to confirm they direct users to valid pages. Tools such as eclipse are used to identify and fix any broken links to maintain the integrity of the site.
+
+Cross-Browser Testing
+Cross-browser testing is performed to ensure that the project functions correctly across different web browsers. This includes testing on:
+
+Google Chrome
+Mozilla Firefox
+Safari
+Microsoft Edge
+We use tools like eclipse to simulate and identify any inconsistencies or issues that may arise in different browsers.
+
+Mobile Responsiveness
+Mobile responsiveness is crucial for providing a good user experience on various devices. We test the project on multiple mobile devices and screen sizes to ensure that the layout and functionality adapt appropriately. Tools such as eclipse and frameworks as selenium,testng ect are used to validate that the project is responsive and performs well on smartphones and tablets.
+
+Contributing
+If you would like to contribute to this project, please follow these guidelines:
+
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature-branch).
+Create a new Pull Request.
+
+
+Contact
+For any questions or feedback, please contact shaiK.Rehana at rehana.shaik2002@gmailcom.
